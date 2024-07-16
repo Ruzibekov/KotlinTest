@@ -48,84 +48,75 @@ fun main() {
     // yechim
     // println(Array(2){ readln().toInt()}.let{it[0]+it[1]})
     /*4
-    Muallif: Sunatullo Hojiyev, Xotira: 16 MB, Vaqt: 1000 ms , Qiyinchiligi: 2 %
-    Masala
-    Tez orada RoboContest tizimining qanday ishlayotganligini tekshirish uchun
-    RoboticsLab direktori ishxonamizga tashrif buyuradi. Biz direktorni tantanali kutib
-    olish maqsadida direktorning moshinadan tushgan joyidan ishxonamiz eshigigacha
-    bo'lgan oraliqga gilam to'shashga qaror qildik. Bizga ma'lumki direktorning
-    mashinasi to'xtatiladigan joydan ishxonamiz kirish eshigigacha bo'lgan masofa
-     metr, bozorda 1 metr gilamning narxi so'm. Biz gilam sotib olish uchun jami
-    qancha mablag' sarflashimizni aniqlang!.
-    Kiruvchi ma'lumotlar:
-    INPUT.TXT kirish faylining yagona satrida ikkita natural son, va sonlari
-    kiritiladi.
-    Chiquvchi ma'lumotlar:
-    OUTPUT.TXT chiqish faylida yagona son, gilam xarid qilish uchun sarflanadigan
-    mablag'ni chiqaring
+
      */
     //yechim
     //val number = readln().split(' ').map { it.toInt() }
     //println(number[0] * number[1])
-    /*val year = readln().toInt()
-    if((year%400==0)||(year%4==0&&year%100!=0)){    1qq
-
+    val year = readln().toInt()
+    when {
+        year % 400 == 0 -> println("12/09/$year")
+        year % 4 == 0 && year % 100 != 0 -> println("13/09/$year")
+        year / 10 == 0 -> println("13/09/000$year")
+        year / 100 == 0 -> println("13/09/00$year")
+        year / 1000 == 0 -> println("13/09/0$year")
+        else -> println("13/09/$year ")
     }
 
-}uyogini xuy ego znayt
- */
-    /*5
-    Beshta musbat butun son berilgan, ulardan to'rttasini ajratib olinganda umumiy
+}
+
+/*5
+Beshta musbat butun son berilgan, ulardan to'rttasini ajratib olinganda umumiy
 yig'indisi bo'lishi mumkin bo'lgan minimum qiymat va maksimum qiymatni
 aniqlang.
-     */
-    /*  val numbers = readln().split(' ').map { it.toInt() }
-        numbers.sorted()
-        val minsum = numbers.take(4).sum()
-        val maxsum = numbers.takeLast(4).sum()
-        print("$minsum $maxsum ")
-       */
-    /*
-    Sizga butun sonlar to'plami berilgan. To'plamda ta elementdan tashqari barchasini
-    jufti bor. To'plamdagi yagona jufti bo'lmagan yolg'iz sonni toping.
-    Masalan: to'plamida yolg'iz son sonidir.
-    Kiruvchi ma'lumotlar:
-    INPUT.TXT kirish faylining birinchi satrida bitta butun soni,
-    to'plam elementlari soni kiritiladi, ikkinchi satrida bo'sh joy bilan ajratilgan holda
-     ta butun son, to'plam elementlari kiritiladi. to'plam elementlari qiymati
-     oralig'ida
-     */
+ */
+/*  val numbers = readln().split(' ').map { it.toInt() }
+    numbers.sorted()
+    val minsum = numbers.take(4).sum()
+    val maxsum = numbers.takeLast(4).sum()
+    print("$minsum $maxsum ")
+   */
+/*
+Sizga butun sonlar to'plami berilgan. To'plamda ta elementdan tashqari barchasini
+jufti bor. To'plamdagi yagona jufti bo'lmagan yolg'iz sonni toping.
+Masalan: to'plamida yolg'iz son sonidir.
+Kiruvchi ma'lumotlar:
+INPUT.TXT kirish faylining birinchi satrida bitta butun soni,
+to'plam elementlari soni kiritiladi, ikkinchi satrida bo'sh joy bilan ajratilgan holda
+ ta butun son, to'plam elementlari kiritiladi. to'plam elementlari qiymati
+ oralig'ida
+ */
 //yechim
 
-    /*  val number = readln().toInt()
-      val elements = readln().split(" ").map { it.toInt() }
-      var uniqueelemnt = 0
-      var uniqueNumber = 0
-      for (element in elements) {
-          uniqueNumber = uniqueNumber xor element
-      }
-      println(uniqueNumber)
-     */
-    /*
-    Uchta opa-singil TATU da o‘qishadi. Ular yangi yilga viloyatga o‘z uylariga qaytishdan
-    oldin onalari uchun sovg‘a olishmoqchi. Ular olmoqchi bo‘lgan sovg‘aning narxi
-    so‘m. Yo‘l xarajatlaridan tashqari opa-singillarning to‘ng‘ichida so‘m,
-    o‘rtanchasida so‘m va kichigida so‘m ortiqcha pul bor. Ular onalari uchun
-    olmoqchi bo‘lgan sovg‘ani ola olishadimi yoki yo‘qligini aniqlang.
-    Kiruvchi ma'lumotlar:
-    Birinchi satrda bitta butun son, soni sovg‘aning narxi kiritiladi. Ikkinchi satrda
-    esa ta butun son, sonlari, mos ravishda opa singillarning yo‘l haqidan
-    tashqari ortiqcha pullari miqdori kiritiladi.
-    Chiquvchi ma'lumotlar:
-    Opa - singillar onalariga sovg‘ani ola olishsa “Yes” aks holda “No” so‘zini chiqaring.
-     */
+/*  val number = readln().toInt()
+  val elements = readln().split(" ").map { it.toInt() }
+  var uniqueelemnt = 0
+  var uniqueNumber = 0
+  for (element in elements) {
+      uniqueNumber = uniqueNumber xor element
+  }
+  println(uniqueNumber)
+ */
+/*
+Uchta opa-singil TATU da o‘qishadi. Ular yangi yilga viloyatga o‘z uylariga qaytishdan
+oldin onalari uchun sovg‘a olishmoqchi. Ular olmoqchi bo‘lgan sovg‘aning narxi
+so‘m. Yo‘l xarajatlaridan tashqari opa-singillarning to‘ng‘ichida so‘m,
+o‘rtanchasida so‘m va kichigida so‘m ortiqcha pul bor. Ular onalari uchun
+olmoqchi bo‘lgan sovg‘ani ola olishadimi yoki yo‘qligini aniqlang.
+Kiruvchi ma'lumotlar:
+Birinchi satrda bitta butun son, soni sovg‘aning narxi kiritiladi. Ikkinchi satrda
+esa ta butun son, sonlari, mos ravishda opa singillarning yo‘l haqidan
+tashqari ortiqcha pullari miqdori kiritiladi.
+Chiquvchi ma'lumotlar:
+Opa - singillar onalariga sovg‘ani ola olishsa “Yes” aks holda “No” so‘zini chiqaring.
+ */
 //yechim
-    /*
-    val summa = readln().toInt()
-    val sistersmoney = readln().split(' ').map { it.toInt() }
-    if (sistersmoney[0] + sistersmoney[1] + sistersmoney[2] >= summa) {
-        println("YES")
-    } else (println("NO"))
+/*
+val summa = readln().toInt()
+val sistersmoney = readln().split(' ').map { it.toInt() }
+if (sistersmoney[0] + sistersmoney[1] + sistersmoney[2] >= summa) {
+    println("YES")
+} else (println("NO"))
 */
 /*
 Masala n(2≤n≤100)n(
@@ -139,10 +130,10 @@ Chiquvchi ma'lumotlar:
 Massivning ikkinchi eng katta elementini chiqaring.
  */
 //yechim
-   /* val number = readln().toInt()
-    val elements = readln().split(' ').map{it.toInt()}
-  println( elements.max())
-    */
+/* val number = readln().toInt()
+ val elements = readln().split(' ').map{it.toInt()}
+println( elements.max())
+ */
 
 
 
@@ -150,7 +141,7 @@ Massivning ikkinchi eng katta elementini chiqaring.
 
 
 
-}
+
 
 
 
