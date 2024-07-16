@@ -53,6 +53,21 @@ fun main() {
     //yechim
     //val number = readln().split(' ').map { it.toInt() }
     //println(number[0] * number[1])
+/*
+Dasturchilar kuni yilning 255-kunida nishonlanadi(bunda 1 - yanvar nolinchi kun
+deb hisoblanadi). Berilgan yildagi dasturchilar kuni sanasini aniqlaydigan dastur
+yozishingiz kerak.
+Grigorian taqvimida kabisa yili hisoblanadi:
+yil raqami 400 ga bo'linadigan yil
+yil raqami 4 ga bo'linadigan, ammo, 100 ga bo'linmaydigan yil
+Kiruvchi ma'lumotlar:
+INPUT.TXT kirish faylining yagona satrida bizning eraga tegishli bo'lgan yilning
+nomerini ifodalaydigan 1 dan 9999 gacha bo'lgan butun son berilgan.
+Chiquvchi ma'lumotlar:
+OUTPUT.TXT chiqish faylining yagona satrida dasturchilar kuni sanasini DD/MM/
+YYYY formatida chop eting. bu yerda DD — sana, MM — oy raqami(01 — yanvar, 02
+— fevral, ..., 12 — dekabr), YYYY — yil raqami.
+ */
     val year = readln().toInt()
     when {
         year % 400 == 0 -> println("12/09/$year")
@@ -62,6 +77,19 @@ fun main() {
         year / 1000 == 0 -> println("13/09/0$year")
         else -> println("13/09/$year ")
     }
+    /* chat jpt optimizatsiay qilgan varianti
+     val year = readln().toInt()
+
+    // Определяем, является ли год високосным
+    val isLeapYear = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)
+    val programmersDay = if (isLeapYear) "12/09/$year" else "13/09/$year"
+
+    // Форматируем год до 4 цифр
+    val formattedYear = year.toString().padStart(4, '0')
+
+    // Выводим дату дня программиста
+    println(programmersDay.replace("$year", formattedYear))
+     */
 
 }
 
