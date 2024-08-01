@@ -1,4 +1,3 @@
-import java.util.*
 import kotlin.math.ceil
 
 fun masala1() {
@@ -268,7 +267,7 @@ fun masala26() {
 }
 
 
-fun main() {
+/*fun main() {
     val scan = Scanner(System.`in`)
 
     val num1 = scan.nextInt()
@@ -283,5 +282,37 @@ fun main() {
         else -> 0
     }
 
+    println(result)
+}
+ */
+fun main() {/*   val a = readln().split('+', '-', '*', '/')
+
+    val result = when (a[1]) {
+        "/" -> a[0].toInt() / a[2].toInt()
+        "*" -> a[0].toInt() * a[2].toInt()
+        "-" -> a[0].toInt() - a[2].toInt()
+        "+" -> a[0].toInt() + a[2].toInt()
+        else -> 0
+    }
+
+   println(result)
+  */
+    val input = readln()
+    val operators = listOf('+', '-', '*', '/')
+    val operator = operators.firstOrNull { it in input }
+    val parts = operator?.let { input.split(it) }
+    val num1 = parts!![0].trim().toIntOrNull()
+    val num2 = parts[1].trim().toIntOrNull()
+    val result = when (operator) {
+        '/' -> if (num2 != 0) num1!! / num2!! else {
+            println("Деление на ноль невозможно.")
+            return
+        }
+
+        '*' -> num1!! * num2!!
+        '+' -> num1!! + num2!!
+        '-' -> num1!! - num2!!
+        else -> {}
+    }
     println(result)
 }
