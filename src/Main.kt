@@ -260,6 +260,7 @@ fun masala26() {
         b == "-" -> {
             println(a - c)
         }
+
         b == "+" -> {
             println(a + c)
         }
@@ -267,29 +268,20 @@ fun masala26() {
 }
 
 
+fun main() {
+    val scan = Scanner(System.`in`)
 
-    import java.util.*
+    val num1 = scan.nextInt()
+    val char = scan.next()
+    val num2 = scan.nextInt()
 
-    fun main() {
-        val scan = Scanner(System.`in`)
-        val num1 = scan.nextInt()
-        val char = scan.next()
-        val num2 = scan.nextInt()
-        when {
-            char == "/" -> {
-                println(num1 / num2)
-            }
-
-            char == "*" -> {
-                println(num1 * num2)
-            }
-
-            char == "+" -> {
-                println(num1 + num2)
-            }
-
-            char == "-" -> {
-                println(num1 - num2)
-            }
-        }
+    val result = when (char) {
+        "/" -> num1 / num2
+        "*" -> num1 * num2
+        "+" -> num1 + num2
+        "-" -> num1 - num2
+        else -> 0
     }
+
+    println(result)
+}
