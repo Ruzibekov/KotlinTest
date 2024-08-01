@@ -1,3 +1,6 @@
+import java.util.*
+import kotlin.math.ceil
+
 fun masala1() {
     val num = readln().split(' ').map { it.toInt() }
     println(num[0] + num[1])
@@ -32,8 +35,7 @@ fun masala6() {
         year < 1000 -> println("13/09/0$year")
         else -> println("13/09/$year ")
     }
-}
-/* chat jpt optimizatsiay qilgan varianti
+}/* chat jpt optimizatsiay qilgan varianti
  val year = readln().toInt()
 
 // Определяем, является ли год високосным
@@ -104,9 +106,9 @@ fun masala13() {
         println(1)
     } else (println(number[1] + 1))
 }
-import kotlin.math.pow
+//import kotlin.math.pow
 
-fun masala14() {
+/*fun masala14() {
     val number = readln().split(' ').map { it.toInt() }
     val n = number[0]
     val k = number[1]
@@ -117,7 +119,177 @@ fun masala14() {
     }
     println(result)
 }
-
-fun main() {
-    masala14()
+ */
+fun masala15() {
+    val number = readln().split(' ').map { it.toInt() }
+    if (number[0] == 0) {
+        println(1)
+    } else (println(number[1] + 1))
 }
+
+fun masala16() {
+    val n = readln().toInt()
+    val units = listOf("", "bir", "ikki", "uch", "to'rt", "besh", "olti", "yett", "sakkiz", "to'qqiz")
+    val tens = listOf("", "o'n", "yigirma", "o'ttiz", "qirq", "ellik", "oltmish", "yetmish", "sakon", "to'qson")
+    val hundred = listOf("", "yuz")
+    val thousands = listOf("", "ming", "milion", "miliard")
+    fun convertHundreds(number: Int): String {
+        val h = number / 100
+        val t = (number % 100) / 10
+        val u = number % 10
+        val result = StringBuilder()
+
+        if (h > 0) result.append(hundred[h]).append(" ")
+        if (t == 1) result.append("o'n ").append(units[u])
+        else {
+            if (t > 1) result.append(tens[t]).append(" ")
+            if (u > 0) result.append(units[u])
+        }
+
+        return result.toString().trim()
+    }
+
+    // Функция для преобразования числа с учетом разрядов
+    fun convert(number: Int): String {
+        if (number == 0) return "nol"
+        val result = StringBuilder()
+        var num = number
+        var scale = 0
+
+        while (num > 0) {
+            val chunk = num % 1000
+            if (chunk > 0) {
+                result.insert(0, convertHundreds(chunk) + " " + thousands[scale] + " ")
+            }
+            num /= 1000
+            scale++
+        }
+
+        return result.toString().trim()
+    }
+
+    println(convert(n))
+}
+
+fun masla19() {
+    val a = readln().split(' ').map { it.toInt() }
+    println(a[1] / a[0])
+}
+
+fun masala20() {
+    val a = readln().split(' ').map { it.toInt() }
+    println(a[0] % a[1])
+}
+
+fun masala21() {
+    val a = readln().split(' ').map { it.toDouble() }
+    val sum = ceil((a[0] + a[1] + a[2]) / 2)
+    println(sum.toInt())
+}
+
+fun masala22() {
+    println(readln().toInt() / 10)
+}
+
+fun masala23() {
+    println(readln().last())
+}
+
+fun masala24() {
+    // Читаем и парсим первую строку
+    val firstTime = readln().split(' ').map { it.toInt() }
+    val firstHours = firstTime[0]
+    val firstMinutes = firstTime[1]
+    val firstSeconds = firstTime[2]
+    val secondTime = readln().split(' ').map { it.toInt() }
+    val secondHours = secondTime[0]
+    val secondMinutes = secondTime[1]
+    val secondSeconds = secondTime[2]
+    val firstTotalSeconds = firstHours * 3600 + firstMinutes * 60 + firstSeconds
+    val secondTotalSeconds = secondHours * 3600 + secondMinutes * 60 + secondSeconds
+    val differenceInSeconds = secondTotalSeconds - firstTotalSeconds
+    println(differenceInSeconds)
+}
+
+fun masala25() {
+    val diffirenceInSeconds = readln().toInt()
+    val hour = diffirenceInSeconds / 3600
+    val minut = (diffirenceInSeconds % 3600) / 60
+    val seconds = diffirenceInSeconds % 60
+    when {
+        seconds < 10 && seconds >= 0 && minut < 10 && minut >= 0 -> {
+            println("$hour:0$minut:0$seconds")
+        }
+
+        seconds < 10 && seconds >= 0 -> {
+            println("$hour:$minut:0$seconds")
+        }
+
+        minut < 10 && minut >= 0 -> {
+            println("$hour:0$minut:$seconds")
+        }
+    }
+
+}
+
+fun masala25N2() {
+    val differenceInSeconds = readln().toInt()
+    val hours = differenceInSeconds / 3600
+    val minutes = (differenceInSeconds % 3600) / 60
+    val seconds = differenceInSeconds % 60
+
+    val formattedMinutes = if (minutes < 10) "0$minutes" else "$minutes"
+    val formattedSeconds = if (seconds < 10) "0$seconds" else "$seconds"
+
+    println("$hours:$formattedMinutes:$formattedSeconds")
+}
+
+fun masala26() {
+    val a = readln().toInt()
+    val b = readln()
+    val c = readln().toInt()
+    when {
+        b == "/" -> {
+            println(a / c)
+        }
+
+        b == "*" -> {
+            println(a * c)
+        }
+
+        b == "-" -> {
+            println(a - c)
+        }
+        b == "+" -> {
+            println(a + c)
+        }
+    }
+}
+
+
+
+    import java.util.*
+
+    fun main() {
+        val scan = Scanner(System.`in`)
+        val num1 = scan.nextInt()
+        val char = scan.next()
+        val num2 = scan.nextInt()
+        when {
+            char == "/" -> {
+                println(num1 / num2)
+            }
+
+            char == "*" -> {
+                println(num1 * num2)
+            }
+
+            char == "+" -> {
+                println(num1 + num2)
+            }
+
+            char == "-" -> {
+                println(num1 - num2)
+            }
+        }
+    }
